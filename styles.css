@@ -1,0 +1,378 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+}
+
+html, body {
+    background-color: #f3efbc;
+    position: relative;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+button {
+    margin-left: 60%;
+    margin-top: 600px;
+    font-size: 40px;
+    width: 600px;
+    background-color: #0006;
+    color: #f6c700;
+    outline: none;
+    font-family: monospace;
+}
+
+button:hover {
+    transform: translate();
+    background-color: #7777;
+    color: #000;
+}
+
+nav {
+    background-color: #f1d194;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    width: 100%;
+    padding: 10px;
+}
+
+nav p {
+    margin-left: 15px;
+    font-weight: 700;
+}
+
+nav a:last-child {
+  margin-right: 35px;
+}
+
+a {
+    text-decoration: none;
+    color: #63300e;
+    font-weight: 700;
+}
+
+.background-image {
+  background-image: url("./Imagenes/imagen_de_fondo.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 80vh;
+  width: 100vw; 
+  max-width: 100%; 
+  overflow: hidden; 
+}
+
+
+section {
+    padding: 80px 360px;
+    display: flex;
+    flex-direction: row; 
+    gap: 40px;
+}
+
+section .sobre-nosotros-img {
+    max-height: 600px;
+    width: 600px;
+}
+
+section div {
+    margin-right: 60px;
+}
+
+section h2 {
+    margin-bottom: 30px;
+    font-size: 28px;
+}
+
+section p {
+    margin-top: 20px;
+    font-weight: 500;
+}
+
+.img-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .img-container img.principal {
+    width: 20vw;
+    height: 40vh;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px #0003;
+  }
+  
+  .img-container img.anterior,
+  .img-container img.posterior {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    filter: drop-shadow(0 0 3px #0008);
+    transition: transform 0.2s;
+  }
+  
+  .img-container img.anterior:hover,
+  .img-container img.posterior:hover {
+    transform: scale(1.1);
+  }
+  
+
+#horarios-contactos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+.horarios {
+    grid-row: 2;
+    grid-column: 1;
+}
+
+.horarios h2 {
+    text-decoration: underline;
+}
+
+.contacto {
+    grid-row: 2;
+    grid-column: 2;
+    margin-bottom: 0px;
+}
+
+.contacto h2 {
+    margin-bottom: 0;
+    text-decoration: underline;
+}
+
+.mapa {
+    grid-row: 2;
+    grid-column: 3;
+}
+
+
+
+.condiciones {
+    grid-row: 1;
+    grid-column: 1 / span 3;
+}
+
+.contacto-info {
+    padding: 0px;
+    margin-right: 0px;
+    display: flex;
+    margin-top: 0;
+}
+
+footer {
+    background-color: #3c3c3c;
+    height: 120px;
+}
+
+.whatsapp-logo {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    overflow: hidden;         /* recorta lo que se pase */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 40%;
+    right: 5%;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    z-index: 10s;
+    pointer-events: none;
+}
+
+
+.whatsapp-logo.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+.whatsapp-logo img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;       
+}
+@media screen and (max-width: 1400px) {
+  nav > a {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .whatsapp-logo {
+    display: flex !important;
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    pointer-events: auto !important;
+    bottom: 60px;
+    top: auto;
+    right: 20px;
+  }
+
+  iframe {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  body {
+    font-size: 16px;
+  }
+
+  button {
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 300px;
+    font-size: 24px;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .background-image {
+    height: 50vh;
+  }
+
+  section {
+    flex-direction: column;
+    padding: 40px 20px;
+    gap: 20px;
+  }
+
+  section .sobre-nosotros-img {
+    width: 100%;
+    max-height: 300px;
+  }
+
+  section div {
+    margin-right: 0;
+  }
+
+  .img-container img.principal {
+    width: 60vw;
+    height: 40vh;
+  }
+
+  #horarios-contactos {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 20px;
+  }
+
+  .horarios, .contacto, .mapa {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .condiciones {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .contacto-info {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  footer {
+    height: auto;
+    padding: 20px;
+  }
+
+  .whatsapp-logo {
+    height: 70px;
+    width: 70px;
+    top: auto;
+    bottom: 60px;
+    right: 20px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  button {
+    margin-top: 450px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  button {
+    margin-top: 360px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  body {
+    font-size: 14px;
+  }
+
+  button {
+    font-size: 20px;
+    margin-top: 150px;
+  }
+
+  nav p, nav a {
+    font-size: 14px;
+  }
+
+  section h2 {
+    font-size: 20px;
+  }
+
+  section p {
+    font-size: 14px;
+  }
+
+  .img-container img.principal {
+    width: 70vw;
+    height: auto;
+  }
+
+  .img-container img.anterior,
+  .img-container img.posterior {
+    width: 40px;
+    height: 40px;
+  }
+
+  .whatsapp-logo {
+    right: 60px;
+    bottom: 90px;
+    height: 60px;
+    width: 60px;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .whatsapp-logo {
+    right: 20px;
+    bottom: 20px;
+    height: 60px;
+    width: 60px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  button {
+    margin-top: 340px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  button {
+    margin-top: 280px;
+  }
+}
+
+
+
