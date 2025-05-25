@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hotel Avenida La Plata</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -38,7 +41,7 @@
         </section>
 
         <section id="comodidades">
-            <div>
+            <div class="comodidades">
                 <h2 >Comodidades</h2>
                 <p>Habitaciones equipadas con baños privados, television por cable, wifi y ventiladores (algunas con aire acondicionado con costo adicional).</p>
                 <p>Contamos con espacios de uso comun, como comedor, sala de estar con televisor y patio.</p>
@@ -46,10 +49,11 @@
                 <p>La cochera se encuentra a una cuadra del establecimiento(sujeto a disponibilidad con costo adicional).</p>
             </div>
             <div class="img-container">
-                <img class="anterior" src="/Imagenes/go_previous_icon_180850.webp" alt="selector de imagen anterior">
-                <img class="principal" src="" alt="habitacion o espacio del hotel">
-                <img class="posterior" src="/Imagenes/go_previous_icon_180852.webp" alt="selector de imagen posterior">
-            </div>
+                <img class="preview anterior" src="" alt="imagen anterior">
+                <img class="principal" src="" alt="imagen actual">
+                <img class="preview posterior" src="" alt="imagen posterior">
+              </div>
+              
         </section>
 
         <section id="horarios-contactos">
@@ -61,13 +65,15 @@
             <div class="contacto">
                 <h2>Contacto</h2>
                 <div class="contacto-info">
-                    <img src="" alt="">
-                    <p>Email: <span>info@hotelavenida.com.ar</span></p>
-                </div>
+                    <p>Email: <a href="mailto:info@hotelavenida.com.ar">info@hotelavenida.com.ar</a></p>
+                  </div>                  
+                  <div class="contacto-info">
+                    <p>Teléfono: <a href="tel:+5492214516767">+54 9 221 4516767</a></p>
+                  </div>                  
                 <div class="contacto-info">
-                    <img src="" alt="">
-                    <p>Teléfono: +54 9 221 4516767</p>
-                </div>
+                    <p>WhatsApp: <a href="https://wa.me/5492215772759" target="_blank">+54 9 221 5772759</a></p>
+                  </div>
+                  
                 <div class="contacto-info">
                     <img src="" alt="">
                     <p>Dirección: <a target="_blank" href="https://www.google.com/maps/place/Hotel+Avenida+La+Plata/@-34.9284655,-57.9458226,19.33z/data=!4m9!3m8!1s0x95a2e89defd15239:0x8f4066273ef0000b!5m2!4m1!1i2!8m2!3d-34.9282305!4d-57.9456882!16s%2Fg%2F1tfzt2k2?entry=ttu&g_ep=EgoyMDI1MDUyMS4wIKXMDSoASAFQAw%3D%3D">Avenida 13 Nº 1443 Esquina 62, La Plata, Buenos Aires (CP: 1900)</a></p>

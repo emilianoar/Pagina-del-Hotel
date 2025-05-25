@@ -4,11 +4,29 @@
     font-size: 20px;
 }
 
+
+.inter-regular {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.inter-bold {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+
 html, body {
-    background-color: #f3efbc;
     position: relative;
     width: 100%;
     overflow-x: hidden;
+    font-family: "inter" ;
+    font-weight: 400;
 }
 
 button {
@@ -90,7 +108,25 @@ section p {
     font-weight: 500;
 }
 
+#comodidades {
+  flex-direction: column;
+  gap: 100px ;
+}
+
+.comodidades {
+  margin-right: 0px;
+}
+
+
 .img-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-right: 0px;
+  }
+  
+  .img-container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -98,24 +134,27 @@ section p {
   }
   
   .img-container img.principal {
-    width: 20vw;
-    height: 40vh;
+    width: 30vw;
+    height: 45vh;
     border-radius: 8px;
     box-shadow: 0 4px 12px #0003;
+    transition: transform 0.3s ease;
+    z-index: 2;
   }
   
-  .img-container img.anterior,
-  .img-container img.posterior {
-    width: 50px;
-    height: 50px;
+  .img-container img.preview {
+    width: 80px;
+    height: auto;
+    opacity: 0.7;
     cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease;
     filter: drop-shadow(0 0 3px #0008);
-    transition: transform 0.2s;
+    z-index: 1;
   }
   
-  .img-container img.anterior:hover,
-  .img-container img.posterior:hover {
-    transform: scale(1.1);
+  .img-container img.preview:hover {
+    transform: scale(1.05);
+    opacity: 1;
   }
   
 
@@ -155,6 +194,7 @@ section p {
 .condiciones {
     grid-row: 1;
     grid-column: 1 / span 3;
+    margin-right: 0px;
 }
 
 .contacto-info {
@@ -162,6 +202,16 @@ section p {
     margin-right: 0px;
     display: flex;
     margin-top: 0;
+}
+
+.contacto-info a {
+  text-decoration: none;
+  color: #0c0c0c;
+  font-weight: 500;
+}
+
+.contacto-info a:hover {
+  font-weight: 700;
 }
 
 footer {
@@ -253,7 +303,7 @@ footer {
 
   section .sobre-nosotros-img {
     width: 100%;
-    max-height: 300px;
+    max-height: 600px;
   }
 
   section div {
@@ -310,6 +360,10 @@ footer {
   button {
     margin-top: 360px;
   }
+
+  section .sobre-nosotros-img {
+    max-height: 400px;
+  }
 }
 
 @media screen and (max-width: 500px) {
@@ -322,7 +376,7 @@ footer {
     margin-top: 150px;
   }
 
-  nav p, nav a {
+  nav p, nav a, a {
     font-size: 14px;
   }
 
@@ -335,7 +389,7 @@ footer {
   }
 
   .img-container img.principal {
-    width: 70vw;
+    width: 60vw;
     height: auto;
   }
 

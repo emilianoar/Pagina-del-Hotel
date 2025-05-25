@@ -1,22 +1,53 @@
-const imagenes = ["./Imagenes/20240923_151027-768x576.webp", "/Imagenes/20240923_151119-768x1024.webp", "/Imagenes/20240923_151446-768x867.webp", "/Imagenes/20240923_151716-768x576.webp", "/Imagenes/20240923_151753-768x576.webp", "/Imagenes/20240923_152316-768x838.webp", "/Imagenes/20240923_152445-768x941.webp", "/Imagenes/20240923_152820-768x576.webp", "/Imagenes/20240923_152936-768x1024.webp", "/Imagenes/20240923_153009-734x1024.webp"]
+const imagenes = [
+  "./Imagenes/20240923_151027-768x576.webp",
+  "/Imagenes/20240923_151119-768x1024.webp",
+  "/Imagenes/20240923_151446-768x867.webp",
+  "/Imagenes/20240923_151716-768x576.webp",
+  "/Imagenes/20240923_151753-768x576.webp",
+  "/Imagenes/20240923_152316-768x838.webp",
+  "/Imagenes/20240923_152445-768x941.webp",
+  "/Imagenes/20240923_152820-768x576.webp",
+  "/Imagenes/20240923_152936-768x1024.webp",
+  "/Imagenes/20240923_153009-734x1024.webp"
+];
 
 let indice = 0;
-  const imagenPrincipal = document.querySelector('.principal');
-  const anterior = document.querySelector('.anterior');
-  const posterior = document.querySelector('.posterior');
+const imgPrincipal = document.querySelector('.principal');
+const imgAnterior = document.querySelector('.anterior');
+const imgPosterior = document.querySelector('.posterior');
 
-  // Mostrar la primera imagen al cargar
-  imagenPrincipal.src = imagenes[indice];
+function actualizarCarrusel() {
+  imgPrincipal.src = imagenes[indice];
+  imgAnterior.src = imagenes[(indice - 1 + imagenes.length) % imagenes.length];
+  imgPosterior.src = imagenes[(indice + 1) % imagenes.length];
+}
 
-  anterior.addEventListener('click', () => {
-    indice = (indice - 1 + imagenes.length) % imagenes.length;
-    imagenPrincipal.src = imagenes[indice];
-  });
+imgAnterior.addEventListener('click', () => {
+  indice = (indice - 1 + imagenes.length) % imagenes.length;
+  actualizarCarrusel();
+});
 
-  posterior.addEventListener('click', () => {
+imgPosterior.addEventListener('click', () => {
+  indice = (indice + 1) % imagenes.length;
+  actualizarCarrusel();
+});
+
+// Autoplay con pausa al hacer hover/touch
+let autoplay = setInterval(() => {
+  indice = (indice + 1) % imagenes.length;
+  actualizarCarrusel();
+}, 3000);
+
+document.querySelector('.img-container').addEventListener('mouseenter', () => clearInterval(autoplay));
+document.querySelector('.img-container').addEventListener('mouseleave', () => {
+  autoplay = setInterval(() => {
     indice = (indice + 1) % imagenes.length;
-    imagenPrincipal.src = imagenes[indice];
-  });
+    actualizarCarrusel();
+  }, 3000);
+});
+
+// Cargar imagen inicial
+actualizarCarrusel();
 
   function mostrarWhatsapp() {
     const icon = document.querySelector('.whatsapp-logo');
