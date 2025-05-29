@@ -11,7 +11,7 @@
 </head>
 <body>
     <nav>
-        <p>Avenida La Plata</p>
+        <p>Hotel Avenida La Plata</p>
         <a href="#sobre-nosotros">Sobre Nosotros</a>
         <a href="#comodidades">Comodidades</a>
         <a href="#horarios-contactos">Donde Encontrarnos</a>
@@ -21,7 +21,7 @@
         <div class="background-image">
             <a href="https://wa.me/5492215772759" target="_blank">
                 <button>HOTEL AVENIDA LA PLATA</button>
-              </a>
+            </a>
         </div>
         <section id="sobre-nosotros">
             <div>
@@ -48,13 +48,17 @@
                 <p>En el servicio esta incluido el desayuno y las emergencias médicas.</p>
                 <p>La cochera se encuentra a una cuadra del establecimiento(sujeto a disponibilidad con costo adicional).</p>
             </div>
-            <div class="img-container">
-                <img class="preview anterior" src="" alt="imagen anterior">
-                <img class="principal" src="" alt="imagen actual">
-                <img class="preview posterior" src="" alt="imagen posterior">
+            <div class="carousel-wrapper">
+                <div class="carousel-track-container">
+                  <div class="carousel-track" id="carousel-track">
+                    <!-- Las imágenes se inyectan desde JS -->
+                  </div>
+                </div>
+                <div class="carousel-dots" id="carousel-dots"></div>
               </div>
               
-        </section>
+              
+        </section>  
 
         <section id="horarios-contactos">
             <div class="horarios">
@@ -65,18 +69,50 @@
             <div class="contacto">
                 <h2>Contacto</h2>
                 <div class="contacto-info">
-                    <p>Email: <a href="mailto:info@hotelavenida.com.ar">info@hotelavenida.com.ar</a></p>
-                  </div>                  
+                    <div class="contacto-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                      <path fill="currentColor" d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2m0 4l-8 5l-8-5V6l8 5l8-5z"/>
+                        </svg>
+                        <p>info@hotelavenida.com.ar</p>
+                    </div>  
+                    <a href="mailto:info@hotelavenida.com.ar">
+                      <button class="contacto-item">Enviar un email</button>
+                    </a>
+                </div>              
                   <div class="contacto-info">
-                    <p>Teléfono: <a href="tel:+5492214516767">+54 9 221 4516767</a></p>
-                  </div>                  
+                    <div class="contacto-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                      <path fill="currentColor" d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.98.98 0 0 0-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02c-.37-1.11-.56-2.3-.56-3.53c0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99C3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99"/>
+                        </svg>
+                        <p>+54 9 221 4516767</p>
+                    </div>
+                    <a href="tel:+5492214516767" class="contacto-item">
+                      <button>Llamar ahora</button>
+                    </a>
+                  </div>                 
                 <div class="contacto-info">
-                    <p>WhatsApp: <a href="https://wa.me/5492215772759" target="_blank">+54 9 221 5772759</a></p>
-                  </div>
-                  
+                    <div class="contacto-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+                            <path fill="#fff" d="M4.868,43.303l2.694-9.835C5.9,30.59,5.026,27.324,5.027,23.979C5.032,13.514,13.548,5,24.014,5c5.079,0.002,9.845,1.979,13.43,5.566c3.584,3.588,5.558,8.356,5.556,13.428c-0.004,10.465-8.522,18.98-18.986,18.98c-0.001,0,0,0,0,0h-0.008c-3.177-0.001-6.3-0.798-9.073-2.311L4.868,43.303z"></path><path fill="#fff" d="M4.868,43.803c-0.132,0-0.26-0.052-0.355-0.148c-0.125-0.127-0.174-0.312-0.127-0.483l2.639-9.636c-1.636-2.906-2.499-6.206-2.497-9.556C4.532,13.238,13.273,4.5,24.014,4.5c5.21,0.002,10.105,2.031,13.784,5.713c3.679,3.683,5.704,8.577,5.702,13.781c-0.004,10.741-8.746,19.48-19.486,19.48c-3.189-0.001-6.344-0.788-9.144-2.277l-9.875,2.589C4.953,43.798,4.911,43.803,4.868,43.803z"></path><path fill="#cfd8dc" d="M24.014,5c5.079,0.002,9.845,1.979,13.43,5.566c3.584,3.588,5.558,8.356,5.556,13.428c-0.004,10.465-8.522,18.98-18.986,18.98h-0.008c-3.177-0.001-6.3-0.798-9.073-2.311L4.868,43.303l2.694-9.835C5.9,30.59,5.026,27.324,5.027,23.979C5.032,13.514,13.548,5,24.014,5 M24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974 M24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974C24.014,42.974,24.014,42.974,24.014,42.974 M24.014,4C24.014,4,24.014,4,24.014,4C12.998,4,4.032,12.962,4.027,23.979c-0.001,3.367,0.849,6.685,2.461,9.622l-2.585,9.439c-0.094,0.345,0.002,0.713,0.254,0.967c0.19,0.192,0.447,0.297,0.711,0.297c0.085,0,0.17-0.011,0.254-0.033l9.687-2.54c2.828,1.468,5.998,2.243,9.197,2.244c11.024,0,19.99-8.963,19.995-19.98c0.002-5.339-2.075-10.359-5.848-14.135C34.378,6.083,29.357,4.002,24.014,4L24.014,4z"></path><path fill="#40c351" d="M35.176,12.832c-2.98-2.982-6.941-4.625-11.157-4.626c-8.704,0-15.783,7.076-15.787,15.774c-0.001,2.981,0.833,5.883,2.413,8.396l0.376,0.597l-1.595,5.821l5.973-1.566l0.577,0.342c2.422,1.438,5.2,2.198,8.032,2.199h0.006c8.698,0,15.777-7.077,15.78-15.776C39.795,19.778,38.156,15.814,35.176,12.832z"></path><path fill="#fff" fill-rule="evenodd" d="M19.268,16.045c-0.355-0.79-0.729-0.806-1.068-0.82c-0.277-0.012-0.593-0.011-0.909-0.011c-0.316,0-0.83,0.119-1.265,0.594c-0.435,0.475-1.661,1.622-1.661,3.956c0,2.334,1.7,4.59,1.937,4.906c0.237,0.316,3.282,5.259,8.104,7.161c4.007,1.58,4.823,1.266,5.693,1.187c0.87-0.079,2.807-1.147,3.202-2.255c0.395-1.108,0.395-2.057,0.277-2.255c-0.119-0.198-0.435-0.316-0.909-0.554s-2.807-1.385-3.242-1.543c-0.435-0.158-0.751-0.237-1.068,0.238c-0.316,0.474-1.225,1.543-1.502,1.859c-0.277,0.317-0.554,0.357-1.028,0.119c-0.474-0.238-2.002-0.738-3.815-2.354c-1.41-1.257-2.362-2.81-2.639-3.285c-0.277-0.474-0.03-0.731,0.208-0.968c0.213-0.213,0.474-0.554,0.712-0.831c0.237-0.277,0.316-0.475,0.474-0.791c0.158-0.317,0.079-0.594-0.04-0.831C20.612,19.329,19.69,16.983,19.268,16.045z" clip-rule="evenodd"></path>
+                            </svg>
+                            <p>+54 9 221 5772759</p>
+                        </div>
+                        <a href="https://wa.me/5492215772759" target="_blank" class="contacto-item">
+                            <button>Enviar mensaje por WhatsApp</button>
+                        </a>
+                      
+                    </div>
+                
                 <div class="contacto-info">
-                    <img src="" alt="">
-                    <p>Dirección: <a target="_blank" href="https://www.google.com/maps/place/Hotel+Avenida+La+Plata/@-34.9284655,-57.9458226,19.33z/data=!4m9!3m8!1s0x95a2e89defd15239:0x8f4066273ef0000b!5m2!4m1!1i2!8m2!3d-34.9282305!4d-57.9456882!16s%2Fg%2F1tfzt2k2?entry=ttu&g_ep=EgoyMDI1MDUyMS4wIKXMDSoASAFQAw%3D%3D">Avenida 13 Nº 1443 Esquina 62, La Plata, Buenos Aires (CP: 1900)</a></p>
+                    <div class="contacto-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7m0 9.5a2.5 2.5 0 0 1 0-5a2.5 2.5 0 0 1 0 5"/>
+                        </svg>
+                        <p>Avenida 13 Nº 1443 Esquina 62, La Plata, Buenos Aires (CP: 1900)</p> 
+                    </div>
+                    <a href="https://www.google.com/maps/place/Hotel+Avenida+La+Plata/@-34.9284655,-57.9458226,19.33z/" target="_blank" class="contacto-item">
+                        <button>Ver en Google Maps</button>
+                    </a>
                 </div>
             </div>
             <div class="mapa">

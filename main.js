@@ -11,43 +11,93 @@ const imagenes = [
   "/Imagenes/20240923_153009-734x1024.webp"
 ];
 
-let indice = 0;
-const imgPrincipal = document.querySelector('.principal');
-const imgAnterior = document.querySelector('.anterior');
-const imgPosterior = document.querySelector('.posterior');
+const track = document.getElementById("carousel-track");
+const dotsContainer = document.getElementById("carousel-dots");
 
-function actualizarCarrusel() {
-  imgPrincipal.src = imagenes[indice];
-  imgAnterior.src = imagenes[(indice - 1 + imagenes.length) % imagenes.length];
-  imgPosterior.src = imagenes[(indice + 1) % imagenes.length];
+let currentIndex = 0;
+let autoplay;
+
+function renderCarrusel() {
+  track.innerHTML = "";
+  dotsContainer.innerHTML = "";
+
+  imagenes.forEach((src, i) => {
+    const img = document.createElement("img");
+    img.src = src;
+    if (i === currentIndex) img.classList.add("active");
+
+    // Listener para cambiar al índice clickeado
+    img.addEventListener("click", () => {
+      currentIndex = i;
+      updateCarrusel();
+      resetAutoplay();
+    });
+
+    track.appendChild(img);
+
+    const dot = document.createElement("div");
+    dot.className = "dot";
+    if (i === currentIndex) dot.classList.add("active");
+    dot.addEventListener("click", () => {
+      currentIndex = i;
+      updateCarrusel();
+      resetAutoplay();
+    });
+    dotsContainer.appendChild(dot);
+  });
+
+  updateCarrusel();
 }
 
-imgAnterior.addEventListener('click', () => {
-  indice = (indice - 1 + imagenes.length) % imagenes.length;
-  actualizarCarrusel();
-});
+function updateCarrusel() {
+  const imgWidth = track.querySelector("img")?.offsetWidth || 0;
+  const gap = 80;
+  const containerWidth = track.parentElement.offsetWidth;
+  
+  // Scroll para centrar la imagen actual dentro del contenedor visible
+  const scroll = (imgWidth + gap) * currentIndex - containerWidth / 2 + imgWidth / 2;
+  track.style.transform = `translateX(${-scroll}px)`;
 
-imgPosterior.addEventListener('click', () => {
-  indice = (indice + 1) % imagenes.length;
-  actualizarCarrusel();
-});
+  [...track.children].forEach((img, i) =>
+    img.classList.toggle("active", i === currentIndex)
+  );
 
-// Autoplay con pausa al hacer hover/touch
-let autoplay = setInterval(() => {
-  indice = (indice + 1) % imagenes.length;
-  actualizarCarrusel();
-}, 3000);
+  [...dotsContainer.children].forEach((dot, i) =>
+    dot.classList.toggle("active", i === currentIndex)
+  );
+}
 
-document.querySelector('.img-container').addEventListener('mouseenter', () => clearInterval(autoplay));
-document.querySelector('.img-container').addEventListener('mouseleave', () => {
-  autoplay = setInterval(() => {
-    indice = (indice + 1) % imagenes.length;
-    actualizarCarrusel();
-  }, 3000);
-});
+function nextSlide() {
+  currentIndex = (currentIndex + 1) % imagenes.length;
+  updateCarrusel();
+}
 
-// Cargar imagen inicial
-actualizarCarrusel();
+function startAutoplay() {
+  autoplay = setInterval(nextSlide, 3000);
+}
+
+function stopAutoplay() {
+  clearInterval(autoplay);
+}
+
+function resetAutoplay() {
+  stopAutoplay();
+  startAutoplay();
+}
+
+// Interacción
+track.addEventListener("mouseenter", stopAutoplay);
+track.addEventListener("mouseleave", startAutoplay);
+
+// Init
+renderCarrusel();
+startAutoplay();
+
+// Para mantener centrado en resize
+window.addEventListener("resize", updateCarrusel);
+
+
+
 
   function mostrarWhatsapp() {
     const icon = document.querySelector('.whatsapp-logo');
