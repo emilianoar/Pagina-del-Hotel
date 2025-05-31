@@ -72,6 +72,16 @@ nav a:last-child {
   margin-right: 35px;
 }
 
+.ingles, .portugues, .español {
+  cursor: pointer;
+}
+
+.idiomas {
+  display: flex;
+  color: #63300e;
+  margin-right: 20px;
+}
+
 a {
     text-decoration: none;
     color: #63300e;
@@ -239,10 +249,19 @@ section p {
 
 .contacto-info button {
   display: flex;
-  width: 300px;
-  height: 48px;
+  width: 400px;
+  height: 54  px;
   justify-content: center;
   align-items: center;
+  border-radius: 12px;
+  background-color: #f1d19466;
+  border: none;
+  cursor: pointer;
+}
+
+.contacto-info button:hover {
+  background-color: #f1d194ff;
+  border: #0008;
 }
 
 .contacto-item {
@@ -324,10 +343,7 @@ footer {
     font-size: 24px;
   }
 
-  nav {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+
 
   .background-image {
     height: 50vh;
@@ -366,7 +382,17 @@ footer {
 
   .condiciones {
     grid-column: 1;
-    grid-row: auto;
+    grid-row: 1;
+  }
+
+  .contacto {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    grid-row: 4;
+  }
+
+  .contacto h2 {
+    grid-column: 1 / span 2;
   }
 
   .contacto-info {
