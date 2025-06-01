@@ -250,7 +250,7 @@ section p {
 .contacto-info button {
   display: flex;
   width: 400px;
-  height: 54  px;
+  height: 54px;
   justify-content: center;
   align-items: center;
   border-radius: 12px;
@@ -365,7 +365,7 @@ footer {
   }
 
   .carousel-track img {
-  width: 30vw;
+  width: 40vw;
   height: 20vh;
 }
 
@@ -452,15 +452,9 @@ footer {
     font-size: 14px;
   }
 
-  .img-container img.principal {
-    width: 60vw;
-    height: auto;
-  }
-
-  .img-container img.anterior,
-  .img-container img.posterior {
-    width: 40px;
-    height: 40px;
+  .carousel-track img {
+    width: 50vw;
+    height: 25vh;
   }
 
   .whatsapp-logo {

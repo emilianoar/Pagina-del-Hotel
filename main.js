@@ -15,81 +15,191 @@ const imagenes = [
 
 const track = document.getElementById("carousel-track");
 const dotsContainer = document.getElementById("carousel-dots");
-
 let currentIndex = 0;
 let autoplay;
 
+// Variables para swipe/drag
+let isDragging = false;
+let startX = 0;
+let currentX = 0;
+let startTransform = 0;
+let threshold = 50; // Mínimo de píxeles para cambiar slide
+
 function renderCarrusel() {
-  track.innerHTML = "";
-  dotsContainer.innerHTML = "";
-
-  imagenes.forEach((src, i) => {
-    const img = document.createElement("img");
-    img.src = src;
-    if (i === currentIndex) img.classList.add("active");
-
-    // Listener para cambiar al índice clickeado
-    img.addEventListener("click", () => {
-      currentIndex = i;
-      updateCarrusel();
-      resetAutoplay();
+    track.innerHTML = "";
+    dotsContainer.innerHTML = "";
+    
+    imagenes.forEach((src, i) => {
+        const img = document.createElement("img");
+        img.src = src;
+        img.draggable = false; // Evita el drag nativo de las imágenes
+        if (i === currentIndex) img.classList.add("active");
+        
+        // Listener para cambiar al índice clickeado
+        img.addEventListener("click", (e) => {
+            // Solo cambiar si no estamos arrastrando
+            if (!isDragging) {
+                currentIndex = i;
+                updateCarrusel();
+                resetAutoplay();
+            }
+        });
+        
+        track.appendChild(img);
+        
+        const dot = document.createElement("div");
+        dot.className = "dot";
+        if (i === currentIndex) dot.classList.add("active");
+        dot.addEventListener("click", () => {
+            currentIndex = i;
+            updateCarrusel();
+            resetAutoplay();
+        });
+        dotsContainer.appendChild(dot);
     });
-
-    track.appendChild(img);
-
-    const dot = document.createElement("div");
-    dot.className = "dot";
-    if (i === currentIndex) dot.classList.add("active");
-    dot.addEventListener("click", () => {
-      currentIndex = i;
-      updateCarrusel();
-      resetAutoplay();
-    });
-    dotsContainer.appendChild(dot);
-  });
-
-  updateCarrusel();
+    
+    updateCarrusel();
 }
 
 function updateCarrusel() {
-  const imgWidth = track.querySelector("img")?.offsetWidth || 0;
-  const gap = 80;
-  const containerWidth = track.parentElement.offsetWidth;
-  
-  // Scroll para centrar la imagen actual dentro del contenedor visible
-  const scroll = (imgWidth + gap) * currentIndex - containerWidth / 2 + imgWidth / 2;
-  track.style.transform = `translateX(${-scroll}px)`;
-
-  [...track.children].forEach((img, i) =>
-    img.classList.toggle("active", i === currentIndex)
-  );
-
-  [...dotsContainer.children].forEach((dot, i) =>
-    dot.classList.toggle("active", i === currentIndex)
-  );
+    if (isDragging) return;
+    
+    const imgWidth = track.querySelector("img")?.offsetWidth || 0;
+    const gap = 80;
+    const containerWidth = track.parentElement.offsetWidth;
+    
+    // Scroll para centrar la imagen actual dentro del contenedor visible
+    const scroll = (imgWidth + gap) * currentIndex - containerWidth / 2 + imgWidth / 2;
+    track.style.transform = `translateX(${-scroll}px)`;
+    
+    [...track.children].forEach((img, i) =>
+        img.classList.toggle("active", i === currentIndex)
+    );
+    [...dotsContainer.children].forEach((dot, i) =>
+        dot.classList.toggle("active", i === currentIndex)
+    );
 }
 
 function nextSlide() {
-  currentIndex = (currentIndex + 1) % imagenes.length;
-  updateCarrusel();
+    currentIndex = (currentIndex + 1) % imagenes.length;
+    updateCarrusel();
+}
+
+function prevSlide() {
+    currentIndex = (currentIndex - 1 + imagenes.length) % imagenes.length;
+    updateCarrusel();
 }
 
 function startAutoplay() {
-  autoplay = setInterval(nextSlide, 3000);
+    if (autoplay) clearInterval(autoplay);
+    autoplay = setInterval(nextSlide, 3000);
 }
 
 function stopAutoplay() {
-  clearInterval(autoplay);
+    clearInterval(autoplay);
+    autoplay = null;
 }
 
 function resetAutoplay() {
-  stopAutoplay();
-  startAutoplay();
+    stopAutoplay();
+    startAutoplay();
 }
 
-// Interacción
+// Funciones para manejar el arrastre/swipe
+function getX(e) {
+    return e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+}
+
+function handleStart(e) {
+    isDragging = true;
+    startX = getX(e);
+    currentX = startX;
+    
+    // Obtener la transformación actual
+    const transform = track.style.transform;
+    const match = transform.match(/translateX\((-?\d+(?:\.\d+)?)px\)/);
+    startTransform = match ? parseFloat(match[1]) : 0;
+    
+    stopAutoplay();
+    track.style.transition = 'none';
+    
+    // Prevenir selección de texto durante el arrastre
+    e.preventDefault();
+}
+
+function handleMove(e) {
+    if (!isDragging) return;
+    
+    e.preventDefault();
+    currentX = getX(e);
+    const deltaX = currentX - startX;
+    
+    // Aplicar la transformación basada en el movimiento
+    track.style.transform = `translateX(${startTransform + deltaX}px)`;
+}
+
+function handleEnd(e) {
+    if (!isDragging) return;
+    
+    isDragging = false;
+    const deltaX = currentX - startX;
+    
+    // Restaurar la transición
+    track.style.transition = 'transform 0.3s ease';
+    
+    // Determinar si cambiar de slide basado en el threshold
+    if (Math.abs(deltaX) > threshold) {
+        if (deltaX > 0) {
+            // Swipe hacia la derecha - slide anterior
+            prevSlide();
+        } else {
+            // Swipe hacia la izquierda - slide siguiente
+            nextSlide();
+        }
+    } else {
+        // No hubo suficiente movimiento, volver al slide actual
+        updateCarrusel();
+    }
+    
+    resetAutoplay();
+}
+
+// Event listeners para mouse (escritorio)
+track.addEventListener("mousedown", handleStart);
+document.addEventListener("mousemove", handleMove);
+document.addEventListener("mouseup", handleEnd);
+
+// Event listeners para touch (móvil)
+track.addEventListener("touchstart", handleStart, { passive: false });
+track.addEventListener("touchmove", handleMove, { passive: false });
+track.addEventListener("touchend", handleEnd);
+
+// Event listeners para scroll con rueda del mouse
+track.addEventListener("wheel", (e) => {
+    e.preventDefault();
+    
+    // Detectar dirección del scroll
+    if (e.deltaY > 0 || e.deltaX > 0) {
+        // Scroll hacia abajo/derecha - siguiente slide
+        nextSlide();
+    } else {
+        // Scroll hacia arriba/izquierda - slide anterior
+        prevSlide();
+    }
+    
+    resetAutoplay();
+});
+
+// Interacción para pausar/reanudar autoplay
 track.addEventListener("mouseenter", stopAutoplay);
 track.addEventListener("mouseleave", startAutoplay);
+
+// Manejar cuando el usuario sale del área mientras arrastra
+document.addEventListener("mouseleave", (e) => {
+    if (isDragging && !track.contains(e.relatedTarget)) {
+        handleEnd(e);
+    }
+});
 
 // Init
 renderCarrusel();
@@ -97,6 +207,8 @@ startAutoplay();
 
 // Para mantener centrado en resize
 window.addEventListener("resize", updateCarrusel);
+
+//Deslizar
 
 
 // ICONO DE WHATSAPP
