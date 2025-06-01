@@ -208,7 +208,6 @@ startAutoplay();
 // Para mantener centrado en resize
 window.addEventListener("resize", updateCarrusel);
 
-//Deslizar
 
 
 // ICONO DE WHATSAPP
