@@ -150,7 +150,7 @@ section p {
 
 .carousel-track {
   display: flex;
-  gap: 80px;
+  gap: 30px;
   transition: transform 0.5s ease-in-out;
   padding: 40px 0;
 }
@@ -453,8 +453,8 @@ footer {
   }
 
   .carousel-track img {
-    width: 85vw;
-    height: 25vh; 
+    width: 75vw;
+    height: 35vh; 
   }
 
   .whatsapp-logo {

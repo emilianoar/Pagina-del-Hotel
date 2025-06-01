@@ -65,7 +65,7 @@ function updateCarrusel() {
     if (isDragging) return;
     
     const imgWidth = track.querySelector("img")?.offsetWidth || 0;
-    const gap = 80;
+    const gap = 30;
     const containerWidth = track.parentElement.offsetWidth;
     
     // Scroll para centrar la imagen actual dentro del contenedor visible
