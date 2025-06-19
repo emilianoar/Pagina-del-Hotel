@@ -34,33 +34,15 @@ svg {
   width: 30px;
 }
 
-.background-image button {
-  position: absolute;
-  right: 5%;
-  bottom: 10%;
-    font-size: 40px;
-    width: 600px;
-    background-color: #0006;
-    color: #f6c700;
-    outline: none;
-    font-family: monospace;
-}
-
-.background-image button:hover {
-    transform: translate();
-    background-color: #7777;
-    color: #000;
-}
-
 
 nav {
-    background-color: #f1d194;
     display: flex;
     justify-content: space-between;
     position: fixed;
     width: 100%;
     padding: 10px;
     z-index: 10;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 nav p {
@@ -78,19 +60,19 @@ nav a:last-child {
 
 .idiomas {
   display: flex;
-  color: #63300e;
+  color: #000;
   margin-right: 20px;
 }
 
 a {
     text-decoration: none;
-    color: #63300e;
+    color: #000;
     font-weight: 700;
 }
 
 .background-image {
   position: relative;
-  background-image: url("./Imagenes/imagen_de_fondo.webp");
+  background-image: url("Imagenes/imagen_de_fondo.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -115,6 +97,11 @@ section .sobre-nosotros-img {
 
 section div {
     margin-right: 60px;
+}
+
+section h1 {
+  font-size: 34px;
+  text-align: center;
 }
 
 section h2 {
@@ -235,6 +222,18 @@ section p {
     margin-right: 0px;
 }
 
+.red path{
+  fill: #d93025;
+}
+
+.hard-green path {
+  fill: #128C7E;
+}
+
+.blue path {
+  fill: #34B7F1;
+}
+
 .contacto-info {
     padding: 0px;
     margin-right: 0px;
@@ -254,14 +253,41 @@ section p {
   justify-content: center;
   align-items: center;
   border-radius: 12px;
-  background-color: #f1d19466;
   border: none;
   cursor: pointer;
+  color: white;
 }
 
-.contacto-info button:hover {
-  background-color: #f1d194ff;
-  border: #0008;
+button.red {
+  background-color: #d93025;
+}
+
+button.red:hover {
+  background-color: #d93025bb;
+}
+
+button.hard-green {
+  background-color: #128C7E;
+}
+
+button.hard-green:hover {
+  background-color: #128C7Ebb;
+}
+
+button.green {
+  background-color: #25D366;
+}
+
+button.green:hover {
+  background-color: #25D366bb;
+}
+
+button.blue {
+  background-color: #34B7F1;
+}
+
+button.blue:hover {
+  background-color: #34B7F1bb;
 }
 
 .contacto-item {
@@ -336,15 +362,6 @@ footer {
     font-size: 16px;
   }
 
-  .background-image button {
-    width: 90%;
-    margin-left: 5%;
-    margin-top: 300px;
-    font-size: 24px;
-  }
-
-
-
   .background-image {
     height: 50vh;
   }
@@ -414,17 +431,8 @@ footer {
   }
 }
 
-@media screen and (max-width: 1000px) {
-  .background-image button {
-    margin-top: 450px;
-  }
-}
 
 @media screen and (max-width: 600px) {
-  .background-image button {
-    margin-top: 360px;
-  }
-
   section .sobre-nosotros-img {
     max-height: 400px;
   }
@@ -471,18 +479,6 @@ footer {
     bottom: 20px;
     height: 60px;
     width: 60px;
-  }
-}
-
-@media screen and (max-width: 450px) {
-  .background-image button {
-    margin-top: 340px;
-  }
-}
-
-@media screen and (max-width: 380px) {
-  .background-image button {
-    margin-top: 280px;
   }
 }
 
