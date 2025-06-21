@@ -36,6 +36,7 @@ svg {
 
 
 nav {
+  background-color: #fff;
     display: flex;
     justify-content: space-between;
     position: fixed;
@@ -207,6 +208,7 @@ section p {
     margin-bottom: 0;
     text-decoration: underline;
     height: 60px;
+    margin-bottom: 0;
 }
 
 .mapa {
@@ -333,6 +335,27 @@ footer {
     width: 100%;
     object-fit: cover;       
 }
+
+@media screen  and (max-width: 1600px) {
+
+  .contacto {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    grid-row: 4;
+  }
+
+  .contacto h2 {
+    grid-column: 1 / span 2;
+  }
+
+  .contacto-info {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  
+}
+
 @media screen and (max-width: 1400px) {
   nav > a {
     display: none;
@@ -354,10 +377,26 @@ footer {
     max-width: 100%;
     height: auto;
     display: block;
+    align-self: center;
+    justify-self: center;
+  }
+
+  .contacto-info {
+
+    height: 150px;
+}
+
+  .contacto-item {
+    margin-bottom: 10px;
   }
 }
 
 @media screen and (max-width: 1280px) {
+  .contacto-info  button{
+    width: 60vw;
+  }
+
+
   body {
     font-size: 16px;
   }
@@ -402,21 +441,6 @@ footer {
     grid-row: 1;
   }
 
-  .contacto {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: auto;
-    grid-row: 4;
-  }
-
-  .contacto h2 {
-    grid-column: 1 / span 2;
-  }
-
-  .contacto-info {
-    flex-direction: column;
-    gap: 10px;
-  }
-
   footer {
     height: auto;
     padding: 20px;
@@ -435,6 +459,19 @@ footer {
 @media screen and (max-width: 600px) {
   section .sobre-nosotros-img {
     max-height: 400px;
+  }
+
+  .contacto-info  button{
+    width: 80vw;
+  }
+
+
+  .contacto-info{
+    justify-self: center;
+  }
+
+  .contacto-info button {
+    margin: 0;
   }
 }
 
