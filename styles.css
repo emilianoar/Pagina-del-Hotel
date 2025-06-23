@@ -103,6 +103,7 @@ section div {
 section h1 {
   font-size: 34px;
   text-align: center;
+  margin-bottom: 30px;
 }
 
 section h2 {
@@ -182,12 +183,13 @@ section p {
 #horarios-contactos {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: 240px 300px 420px;
+    margin: 0;
 }
 
 .horarios {
-    grid-row: 2;
-    grid-column: 1;
+    grid-row: 2 ;
+    grid-column: 1 / span 2;
 }
 
 .horarios h2 {
@@ -208,7 +210,7 @@ section p {
     margin-bottom: 0;
     text-decoration: underline;
     height: 60px;
-    margin-bottom: 0;
+    margin-bottom: 0  ;
 }
 
 .mapa {
@@ -337,6 +339,12 @@ footer {
 }
 
 @media screen  and (max-width: 1600px) {
+
+  #horarios-contactos {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 20px;
+  }
 
   .contacto {
     grid-template-columns: repeat(2, 1fr);

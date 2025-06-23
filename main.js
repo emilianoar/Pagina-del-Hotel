@@ -261,7 +261,7 @@ window.addEventListener("resize", updateCarrusel);
     },
     "titulo-principal": {
       "es": "HOTEL AVENIDA LA PLATA",
-      "en": "AVENIDA LA PLATA HOTEL",
+      "en": "HOTEL AVENIDA LA PLATA",
       "por": "HOTEL AVENIDA LA PLATA"
     },
     "titulo-sobre-nosotros": {
@@ -324,6 +324,13 @@ window.addEventListener("resize", updateCarrusel);
       "en": "Check-Out: 10:00AM",
       "por": "Check-Out: 10:00AM"
     },
+    "texto3-horarios": {
+    "es": "Abierto las 24hs todos los días del año",
+    "en": "Open 24 hours, every day of the year",
+    "por": "Aberto 24 horas, todos os dias do ano"
+  }
+
+    ,
     "titulo-contacto": {
       "es": "Contacto",
       "en": "Contact",
