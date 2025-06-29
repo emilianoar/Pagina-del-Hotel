@@ -1,16 +1,16 @@
 // CARRUSEL DE IMAGENES
 
 const imagenes = [
-  "Imagenes/20240923_151027-768x576.webp",
-  "Imagenes/20240923_151119-768x1024.webp",
-  "Imagenes/20240923_151446-768x867.webp",
-  "Imagenes/20240923_151716-768x576.webp",
-  "Imagenes/20240923_151753-768x576.webp",
-  "Imagenes/20240923_152316-768x838.webp",
-  "Imagenes/20240923_152445-768x941.webp",
-  "Imagenes/20240923_152820-768x576.webp",
-  "Imagenes/20240923_152936-768x1024.webp",
-  "Imagenes/20240923_153009-734x1024.webp"
+  "Imagenes/carousel-optimized/20240923_151027-768x576.webp",
+  "Imagenes/carousel-optimized/20240923_151119-768x1024.webp",
+  "Imagenes/carousel-optimized/20240923_151446-768x867.webp",
+  "Imagenes/carousel-optimized/20240923_151716-768x576.webp",
+  "Imagenes/carousel-optimized/20240923_151753-768x576.webp",
+  "Imagenes/carousel-optimized/20240923_152316-768x838.webp",
+  "Imagenes/carousel-optimized/20240923_152445-768x941.webp",
+  "Imagenes/carousel-optimized/20240923_152820-768x576.webp",
+  "Imagenes/carousel-optimized/20240923_152936-768x1024.webp",
+  "Imagenes/carousel-optimized/20240923_153009-734x1024.webp"
 ];
 
 const track = document.getElementById("carousel-track");
