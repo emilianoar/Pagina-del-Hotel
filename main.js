@@ -44,6 +44,7 @@ function renderCarrusel() {
         
         img.draggable = false; // Evita el drag nativo de las imágenes
         img.loading = "lazy"; // Añadir atributo loading lazy nativo
+        img.alt = `Imagen del hotel ${i + 1} - Instalaciones y habitaciones`; // SEO: añadir alt text
         if (i === currentIndex) img.classList.add("active");
         
         // Listener para cambiar al índice clickeado
