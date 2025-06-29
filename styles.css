@@ -5,6 +5,22 @@
 }
 
 
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Inter'), url(https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Inter'), url(https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuFuYAZ9hiA.woff2) format('woff2');
+}
+
 .inter-regular {
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
@@ -81,6 +97,15 @@ a {
   width: 100vw; 
   max-width: 100%; 
   overflow: hidden; 
+  will-change: transform;
+}
+
+/* Optimización para diferentes tamaños de pantalla */
+@media (max-width: 768px) {
+  .background-image {
+    background-image: url("Imagenes/imagen_de_fondo.webp");
+    height: 60vh;
+  }
 }
 
 

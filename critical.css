@@ -1,0 +1,46 @@
+/* CSS Crítico - Inline en el HTML para mejorar FCP */
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+}
+
+html, body {
+    position: relative;
+    width: 100%;
+    overflow-x: hidden;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+}
+
+nav {
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    width: 100%;
+    padding: 10px;
+    z-index: 10;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.background-image {
+    position: relative;
+    background-image: url("Imagenes/imagen_de_fondo.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 80vh;
+    width: 100vw;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+/* Font-face con font-display: swap */
+@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local('Inter'), url(https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2) format('woff2');
+}

@@ -6,8 +6,12 @@
     <title>Hotel Avenida La Plata</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet"></noscript>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preload" as="image" href="Imagenes/imagen_de_fondo.webp">
+    <link rel="preconnect" href="https://www.google.com">
+    <link rel="dns-prefetch" href="https://www.google.com">
 </head>
 <body>
     <nav>
@@ -41,7 +45,7 @@
                     Gracias al valor arquitectónico del edificio, ha sido reconocido como Patrimonio Histórico de la Gran Ciudad de La Plata.
                 </p>
                 </div>
-                <img src="Imagenes/20240923_153009-734x1024.webp" alt="sobre nosotros imagenes" class="sobre-nosotros-img">
+                <img src="Imagenes/20240923_153009-734x1024.webp" alt="sobre nosotros imagenes" class="sobre-nosotros-img" loading="lazy" width="600" height="834">
             </div>
         </section>
 
@@ -122,7 +126,7 @@
                 </div>
             </div>
             <div class="mapa">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d289.1299249887908!2d-57.94571375279762!3d-34.928251046759094!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a2e89defd15239%3A0x8f4066273ef0000b!2sHotel%20Avenida%20La%20Plata!5e0!3m2!1ses-419!2sar!4v1748041241335!5m2!1ses-419!2sar" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d289.1299249887908!2d-57.94571375279762!3d-34.928251046759094!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a2e89defd15239%3A0x8f4066273ef0000b!2sHotel%20Avenida%20La%20Plata!5e0!3m2!1ses-419!2sar!4v1748041241335!5m2!1ses-419!2sar" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ubicación Hotel Avenida La Plata"></iframe>
             </div>
             <div class="condiciones">
                 <h2 class="titulo-condiciones">Condiciones</h2>
@@ -132,7 +136,7 @@
         </section>
 
         <a href="https://wa.me/5492215772759" target="_blank" class="whatsapp-logo">
-            <img src="Imagenes/WhatsApp_Logo_2-1.webp" alt="WhatsApp">
+            <img src="Imagenes/WhatsApp_Logo_2-1.webp" alt="WhatsApp" loading="lazy" width="60" height="60">
           </a>
 
     </main>
@@ -141,6 +145,6 @@
 
     </footer>
 
-    <script src="main.js"></script>
+    <script src="main.js" defer></script>
 </body>
 </html>

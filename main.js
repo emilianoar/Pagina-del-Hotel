@@ -31,8 +31,19 @@ function renderCarrusel() {
     
     imagenes.forEach((src, i) => {
         const img = document.createElement("img");
-        img.src = src;
+        
+        // Implementar lazy loading
+        if (Math.abs(i - currentIndex) <= 2) {
+            // Cargar solo la imagen actual y las 2 adyacentes
+            img.src = src;
+        } else {
+            // Para las demás, usar data-src y un placeholder ligero
+            img.dataset.src = src;
+            img.style.backgroundColor = '#f0f0f0';
+        }
+        
         img.draggable = false; // Evita el drag nativo de las imágenes
+        img.loading = "lazy"; // Añadir atributo loading lazy nativo
         if (i === currentIndex) img.classList.add("active");
         
         // Listener para cambiar al índice clickeado
@@ -72,9 +83,17 @@ function updateCarrusel() {
     const scroll = (imgWidth + gap) * currentIndex - containerWidth / 2 + imgWidth / 2;
     track.style.transform = `translateX(${-scroll}px)`;
     
-    [...track.children].forEach((img, i) =>
-        img.classList.toggle("active", i === currentIndex)
-    );
+    [...track.children].forEach((img, i) => {
+        img.classList.toggle("active", i === currentIndex);
+        
+        // Cargar imágenes cercanas al índice actual
+        if (Math.abs(i - currentIndex) <= 2) {
+            if (img.dataset.src && !img.src) {
+                img.src = img.dataset.src;
+                delete img.dataset.src;
+            }
+        }
+    });
     [...dotsContainer.children].forEach((dot, i) =>
         dot.classList.toggle("active", i === currentIndex)
     );
