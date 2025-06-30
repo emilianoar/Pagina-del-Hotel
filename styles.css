@@ -536,6 +536,23 @@ footer {
     font-size: 14px;
   }
 
+  .idiomas {
+    gap: 4px;
+  }
+
+  .idiomas p {
+    font-size: 12px;
+  }
+
+  .idiomas .flag-icon {
+    width: 12px;
+    height: 9px;
+  }
+
+  .ingles, .portugues, .español {
+    gap: 2px;
+  }
+
   section h2 {
     font-size: 20px;
   }
