@@ -544,6 +544,10 @@ footer {
     font-size: 10px;
   }
 
+  .idiomas span {
+    font-size: 10px;
+  }
+
   .idiomas .flag-icon {
     width: 14px;
     height: 10.5px;
