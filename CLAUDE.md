@@ -16,10 +16,11 @@ This is a static website for Hotel Avenida La Plata, a 3-star hotel in La Plata,
 ## Key Features
 
 1. **Custom Image Carousel**: Touch/swipe support with lazy loading
-2. **Multi-language Support**: Spanish (default), English, Portuguese via JavaScript
+2. **Multi-language Support**: Spanish (default), English, Portuguese via JavaScript with inline SVG flag icons
 3. **WhatsApp Floating Button**: Scroll-based visibility toggle
-4. **SEO Optimizations**: Schema.org structured data, meta tags, sitemap
+4. **SEO Optimizations**: Schema.org structured data, meta tags, sitemap, Open Graph and Twitter Cards
 5. **Performance Optimized**: Critical CSS inlined, lazy loading, WebP images
+6. **Social Media Integration**: Open Graph meta tags and Twitter Cards for enhanced social sharing
 
 ## Project Structure
 
@@ -29,14 +30,20 @@ This is a static website for Hotel Avenida La Plata, a 3-star hotel in La Plata,
 ├── styles.css              # Main stylesheet
 ├── critical.css            # Critical above-the-fold CSS
 ├── main.js                 # JavaScript functionality
+├── README.md               # Project readme
+├── CLAUDE.md               # This file - AI assistant guidance
 ├── robots.txt              # SEO crawling rules
 ├── sitemap.xml             # Site structure for search engines
 ├── optimize-images.sh      # Image optimization script
 ├── Imagenes/
 │   ├── carousel-optimized/ # Optimized carousel images
 │   ├── imagenes originales/# Original image backups
-│   └── optimized/          # Script-generated optimized images
-└── lighthouse-*.json       # Performance test results
+│   ├── optimized/          # Script-generated optimized images
+│   ├── hero-bg-optimized.webp         # Hero section background
+│   ├── sobre-nosotros-optimized.webp  # About section image
+│   └── WhatsApp_Logo_2-1.webp         # WhatsApp button icon
+├── lighthouse-perf-check-desktop.json  # Desktop performance test
+└── lighthouse-perf-check-mobile.json   # Mobile performance test
 ```
 
 ## Common Development Tasks
@@ -71,6 +78,17 @@ Since this is a static site, you can:
 - Use a simple HTTP server: `python3 -m http.server 8000`
 - Use VS Code Live Server extension
 
+## Responsive Design Breakpoints
+
+The site uses progressive responsive design with the following breakpoints:
+- **1600px**: Default desktop styles
+- **1400px**: Navigation links hidden, section padding reduced to 120px
+- **1300px**: Further padding reduction to 80px, button width adjustments
+- **1280px**: Major layout shift to mobile-friendly design
+- **600px**: Mobile optimizations
+- **500px**: Small mobile adjustments
+- **440px**: Minimum viewport optimizations
+
 ## Important Guidelines
 
 1. **Maintain Static Nature**: Do not introduce frameworks, bundlers, or npm packages
@@ -101,7 +119,9 @@ Since this is a static site, you can:
 When making changes:
 1. Test on mobile and desktop viewports
 2. Verify WhatsApp button functionality
-3. Check language switcher works correctly
+3. Check language switcher works correctly and flag icons display properly
 4. Test carousel touch/swipe on mobile
 5. Run Lighthouse tests to ensure performance isn't degraded
 6. Validate HTML and check for accessibility issues
+7. Test social media sharing previews (Open Graph and Twitter Cards)
+8. Verify responsive behavior at all breakpoints (1600px, 1400px, 1300px, 1280px, 600px, 500px, 440px)
