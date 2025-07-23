@@ -403,6 +403,13 @@ footer {
   
 }
 
+@media screen and (max-width: 1600px) {
+  /* Reduce padding for medium-large screens */
+  section {
+    padding: 60px 180px;
+  }
+}
+
 @media screen and (max-width: 1400px) {
   nav > a {
     display: none;
