@@ -407,9 +407,54 @@ footer {
   nav > a {
     display: none;
   }
+  
+  /* Intermediate responsive adjustments for 1280px-1400px range */
+  section {
+    padding: 60px 120px;
+  }
+  
+  .contacto-info button {
+    width: 350px;
+  }
+  
+  #horarios-contactos {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto;
+    gap: 30px;
+  }
+  
+  .horarios {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  
+  .condiciones {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  
+  .contacto {
+    grid-column: 1 / span 2;
+    grid-row: 2;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .mapa {
+    grid-column: 1 / span 2;
+    grid-row: 3;
+  }
 }
 
 @media screen and (max-width: 1300px) {
+  /* Further reduce padding for 1280px-1300px range */
+  section {
+    padding: 50px 80px;
+  }
+  
+  .contacto-info button {
+    width: 300px;
+  }
+  
   .whatsapp-logo {
     display: flex !important;
     opacity: 1 !important;
@@ -429,9 +474,8 @@ footer {
   }
 
   .contacto-info {
-
     height: 150px;
-}
+  }
 
   .contacto-item {
     margin-bottom: 10px;
