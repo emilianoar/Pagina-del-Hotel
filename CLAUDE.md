@@ -66,10 +66,10 @@ This script creates multiple versions of images:
 npm install -g lighthouse
 
 # Run desktop performance test
-lighthouse https://hotelavenidaenargentina.com --preset=desktop --output=json > lighthouse-desktop.json
+lighthouse https://hotelavenida.com.ar --preset=desktop --output=json > lighthouse-desktop.json
 
 # Run mobile performance test
-lighthouse https://hotelavenidaenargentina.com --output=json > lighthouse-mobile.json
+lighthouse https://hotelavenida.com.ar --output=json > lighthouse-mobile.json
 ```
 
 ### Local Development
@@ -108,11 +108,32 @@ The site uses progressive responsive design with the following breakpoints:
 ## Hotel Information
 
 - **Name**: Hotel Avenida La Plata
-- **Address**: Avenida 60 n°798, La Plata, Buenos Aires, Argentina
-- **Phone**: +54 221 424-2046
-- **WhatsApp**: +54 9 221 616-1002
-- **Email**: havenida@yahoo.com.ar
-- **Website**: https://hotelavenidaenargentina.com
+- **Address**: Avenida 13 Nº 1443 Esquina 62, La Plata, Buenos Aires, Argentina (CP: 1900)
+- **Phone**: +54 9 221 4516767
+- **WhatsApp**: +54 9 221 5772759
+- **Email**: info@hotelavenida.com.ar
+- **Website**: https://hotelavenida.com.ar
+
+## Repository & Deployment
+
+- **GitHub Account**: platense9@gmail.com (username: emilianoar)
+- **Repository**: https://github.com/emilianoar/Pagina-del-Hotel
+- **Production URL**: https://www.hotelavenida.com.ar
+- **Deployment**: Changes pushed to `main` branch are automatically deployed to production
+
+### Git Workflow
+```bash
+# After making changes:
+git add <archivo>                    # Stage specific file
+git commit -m "Descripción"          # Commit with message
+git push                             # Push to GitHub (auto-deploys)
+```
+
+## Analytics & Tracking
+
+- **Google Ads**: gtag.js with ID `AW-1022889830`
+  - Location: `index.html` lines 7-14, inside `<head>` after `<title>`
+  - Purpose: Conversion tracking for Google Ads campaigns
 
 ## Testing Checklist
 
