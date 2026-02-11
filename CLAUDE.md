@@ -4,106 +4,133 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a static website for Hotel Avenida La Plata, a 3-star hotel in La Plata, Argentina. The site was migrated from WordPress to a custom static implementation for improved performance and reduced maintenance costs.
+Static website for Hotel Avenida La Plata, a 1-star hotel in La Plata, Argentina. Redesigned in Feb 2026 with navy/gold brand identity based on the official logo.
 
 ## Technology Stack
 
 - **Languages**: HTML5, CSS3, Vanilla JavaScript
-- **No frameworks or build tools** - This is intentionally a pure static site
-- **Image format**: WebP (optimized for web performance)
-- **Font**: Google Fonts (Inter)
+- **No frameworks or build tools** - Pure static site
+- **Image formats**: JPG (room photos), WebP (optimized carousel), PNG (logo)
+- **Font**: Inter (self-hosted via @font-face)
+- **CSS**: Custom properties, clamp(), CSS Grid, 3 breakpoints
+
+## Design System (Feb 2026 Redesign)
+
+### Color Palette (from logo)
+| Token | Hex | Usage |
+|---|---|---|
+| `--navy-dark` | `#0f1d35` | Footer, overlays |
+| `--navy` | `#1a2a4a` | Nav, headings |
+| `--gold` | `#c9a84c` | Accents, CTA, star |
+| `--gold-light` | `#e8d5a0` | Subtle highlights |
+| `--cream` | `#faf8f3` | Alternating section bg |
+| `--white` | `#ffffff` | Main background |
+
+### Responsive Breakpoints (simplified)
+| Breakpoint | Changes |
+|---|---|
+| **>1024px** | Full layout, gallery 3 col, nav with links |
+| **<=1024px** | Hamburger menu, gallery 2 col, stacked sections |
+| **<=768px** | Adjusted grids, full-width carousel |
+| **<=500px** | Gallery 1 col, full-width buttons |
+
+## Page Sections (top to bottom)
+
+1. **Nav** - Fixed navy bar: logo (`logo hotel 2026.png`) + gold title + links + language flags + hamburger (mobile)
+2. **Hero** - Full-viewport `20251216_125319.jpg` with navy gradient overlay, centered logo + star + title + CTA
+3. **Sobre Nosotros** - 2-col grid: text | `sobre-nosotros-optimized.webp`
+4. **Galería de Habitaciones** - CSS grid 3-col with 7 room photos, gradient labels, lightbox on click
+5. **Desayuno** - 2-col grid: text | 2 breakfast photos (`20251018_083531.jpg`, `20251018_083646.jpg`)
+6. **Comodidades** - 6 SVG amenity icon cards + 4 text paragraphs + image carousel with arrows
+7. **Horarios/Contacto** - Info cards (gold left border) + 4 contact cards + full-width Google Maps
+8. **Footer** - Navy dark, 3 columns: logo+name | address/contact | nav links
 
 ## Key Features
 
-1. **Custom Image Carousel**: Touch/swipe support with lazy loading
-2. **Multi-language Support**: Spanish (default), English, Portuguese via JavaScript with inline SVG flag icons
-3. **WhatsApp Floating Button**: Scroll-based visibility toggle
-4. **SEO Optimizations**: Schema.org structured data, meta tags, sitemap, Open Graph and Twitter Cards
-5. **Performance Optimized**: Critical CSS inlined, lazy loading, WebP images
-6. **Social Media Integration**: Open Graph meta tags and Twitter Cards for enhanced social sharing
+1. **Image Carousel**: 16 images (10 optimized WebP + 6 JPG room photos), prev/next arrows, dots, swipe, autoplay
+2. **Multi-language**: ES (default), EN, POR - translation via class matching in `translate()` function
+3. **Lightbox**: Gallery images open in full-screen overlay with prev/next + keyboard navigation
+4. **Hamburger Menu**: Mobile nav overlay, animated icon, closes on link click
+5. **WhatsApp Float**: Always visible on mobile, scroll-triggered on desktop
+6. **SEO**: Schema.org Hotel, Open Graph, Twitter Cards, sitemap, robots.txt
+
+## Translation System
+
+- All translatable elements have unique CSS classes (e.g., `titulo-sobre-nosotros`, `texto1-comodidades`)
+- `translate(idioma)` iterates all DOM elements, matches class to `traduccion` object keys
+- Translation classes must be on **leaf text elements only** (no children with their own text)
+- Language selectors exist in both desktop nav and mobile nav overlay
 
 ## Project Structure
 
 ```
 /
-├── index.html              # Main website file
-├── styles.css              # Main stylesheet
-├── critical.css            # Critical above-the-fold CSS
-├── main.js                 # JavaScript functionality
-├── README.md               # Project readme
-├── CLAUDE.md               # This file - AI assistant guidance
+├── index.html              # Main page (all sections)
+├── styles.css              # Complete stylesheet (custom properties, all sections, responsive)
+├── main.js                 # Carousel, WhatsApp, hamburger, lightbox, translations
+├── CLAUDE.md               # This file
 ├── robots.txt              # SEO crawling rules
-├── sitemap.xml             # Site structure for search engines
-├── optimize-images.sh      # Image optimization script
+├── sitemap.xml             # Site structure
 ├── Imagenes/
-│   ├── carousel-optimized/ # Optimized carousel images
-│   ├── imagenes originales/# Original image backups
-│   ├── optimized/          # Script-generated optimized images
-│   ├── hero-bg-optimized.webp         # Hero section background
-│   ├── sobre-nosotros-optimized.webp  # About section image
-│   └── WhatsApp_Logo_2-1.webp         # WhatsApp button icon
-├── lighthouse-perf-check-desktop.json  # Desktop performance test
-└── lighthouse-perf-check-mobile.json   # Mobile performance test
+│   ├── logo hotel 2026.png          # Official hotel logo with star
+│   ├── sobre-nosotros-optimized.webp # About section image
+│   ├── WhatsApp_Logo_2-1.webp       # WhatsApp float icon
+│   ├── 20251216_125319.jpg          # Hero bg + gallery (room with AC/TV)
+│   ├── 20251216_125312.jpg          # Gallery (marble bathroom)
+│   ├── 20251218_173138.jpg          # Gallery (classic room, wood floor)
+│   ├── 20251218_173506.jpg          # Gallery (classic wide view)
+│   ├── 20251226_095519.jpg          # Gallery (family room, bunk bed)
+│   ├── 20251226_095840.jpg          # Gallery (double room with TV)
+│   ├── 20251226_100059.jpg          # Gallery (twin room, pink)
+│   ├── 20251018_083531.jpg          # Breakfast buffet main
+│   ├── 20251018_083646.jpg          # Breakfast buffet wide
+│   └── carousel-optimized/          # 10 optimized WebP carousel images
 ```
-
-## Common Development Tasks
-
-### Image Optimization
-```bash
-# Run the image optimization script (requires cwebp: brew install webp)
-./optimize-images.sh
-```
-
-This script creates multiple versions of images:
-- Desktop: 85% quality, original size
-- Tablet: 75% quality, max 1200px width
-- Mobile: 65% quality, max 768px width
-- Thumbnails: 70% quality, 400px width
-
-### Performance Testing
-```bash
-# Install Lighthouse CLI if not present
-npm install -g lighthouse
-
-# Run desktop performance test
-lighthouse https://hotelavenida.com.ar --preset=desktop --output=json > lighthouse-desktop.json
-
-# Run mobile performance test
-lighthouse https://hotelavenida.com.ar --output=json > lighthouse-mobile.json
-```
-
-### Local Development
-Since this is a static site, you can:
-- Open `index.html` directly in a browser
-- Use a simple HTTP server: `python3 -m http.server 8000`
-- Use VS Code Live Server extension
-
-## Responsive Design Breakpoints
-
-The site uses progressive responsive design with the following breakpoints:
-- **1600px**: Default desktop styles
-- **1400px**: Navigation links hidden, section padding reduced to 120px
-- **1300px**: Further padding reduction to 80px, button width adjustments
-- **1280px**: Major layout shift to mobile-friendly design
-- **600px**: Mobile optimizations
-- **500px**: Small mobile adjustments
-- **440px**: Minimum viewport optimizations
 
 ## Important Guidelines
 
-1. **Maintain Static Nature**: Do not introduce frameworks, bundlers, or npm packages
-2. **Performance First**: All changes should maintain or improve Core Web Vitals scores
-3. **Image Format**: Always use WebP format for images (except favicon)
-4. **Critical CSS**: Keep critical.css minimal - only above-the-fold styles
-5. **JavaScript**: Keep vanilla JS, no jQuery or other libraries
+1. **Maintain Static Nature**: No frameworks, bundlers, or npm packages
+2. **DO NOT use CSS preload/onload pattern** - It breaks on Chrome Android. Use direct `<link rel="stylesheet">`
+3. **Image Format**: New room photos are JPG (1.8-4.5MB each). Carousel uses optimized WebP
+4. **JavaScript**: Vanilla JS only, no libraries
+5. **Translations**: Keep class-based system. Add new keys to `traduccion` object in main.js
 6. **SEO**: Update sitemap.xml and structured data when adding new content
 
-## Performance Targets
+## Images NOT used (>5MB, excluded from repo)
 
-- Lighthouse Performance Score: 95+ (desktop), 90+ (mobile)
-- First Contentful Paint: < 1.5s
-- Largest Contentful Paint: < 2.5s
-- Total Page Size: < 1MB
+- `20180416_192958.jpg` (6.7MB)
+- `20180626_115829.jpg` (5.0MB)
+- `20251018_083603.jpg` (5.1MB)
+- `20251021_071629.jpg` (7.1MB)
+
+## Repository & Deployment
+
+- **GitHub Account**: platense9@gmail.com (username: emilianoar)
+- **Repository**: https://github.com/emilianoar/Pagina-del-Hotel
+- **Production URL**: https://www.hotelavenida.com.ar
+- **Deployment**: Push to `main` = auto-deploy to production
+
+### Git Workflow
+```bash
+git add <files>
+git commit -m "Description"
+git push                    # Auto-deploys
+```
+
+## Analytics & Tracking
+
+- **Google Ads**: gtag.js with ID `AW-1022889830` (in `<head>`)
+
+## Testing Checklist
+
+1. Desktop Chrome + Mobile Android Chrome (both must work)
+2. Hard refresh after deploy (Ctrl+Shift+R) to clear cache
+3. Test language switcher (ES/EN/POR) in all sections
+4. Test carousel: swipe, arrows, dots, autoplay
+5. Test lightbox: click gallery image, navigate, close with Esc
+6. Test hamburger menu on mobile
+7. Verify WhatsApp float button
+8. Check all 3 breakpoints: 1024px, 768px, 500px
 
 ## Hotel Information
 
@@ -113,36 +140,3 @@ The site uses progressive responsive design with the following breakpoints:
 - **WhatsApp**: +54 9 221 5772759
 - **Email**: info@hotelavenida.com.ar
 - **Website**: https://hotelavenida.com.ar
-
-## Repository & Deployment
-
-- **GitHub Account**: platense9@gmail.com (username: emilianoar)
-- **Repository**: https://github.com/emilianoar/Pagina-del-Hotel
-- **Production URL**: https://www.hotelavenida.com.ar
-- **Deployment**: Changes pushed to `main` branch are automatically deployed to production
-
-### Git Workflow
-```bash
-# After making changes:
-git add <archivo>                    # Stage specific file
-git commit -m "Descripción"          # Commit with message
-git push                             # Push to GitHub (auto-deploys)
-```
-
-## Analytics & Tracking
-
-- **Google Ads**: gtag.js with ID `AW-1022889830`
-  - Location: `index.html` lines 7-14, inside `<head>` after `<title>`
-  - Purpose: Conversion tracking for Google Ads campaigns
-
-## Testing Checklist
-
-When making changes:
-1. Test on mobile and desktop viewports
-2. Verify WhatsApp button functionality
-3. Check language switcher works correctly and flag icons display properly
-4. Test carousel touch/swipe on mobile
-5. Run Lighthouse tests to ensure performance isn't degraded
-6. Validate HTML and check for accessibility issues
-7. Test social media sharing previews (Open Graph and Twitter Cards)
-8. Verify responsive behavior at all breakpoints (1600px, 1400px, 1300px, 1280px, 600px, 500px, 440px)
