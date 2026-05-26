@@ -616,9 +616,9 @@ const traduccion = {
     "por": "Horários"
   },
   "texto1-horarios": {
-    "es": "Check-In: 11:00AM",
-    "en": "Check-In: 11:00AM",
-    "por": "Check-In: 11:00AM"
+    "es": "Check-In: 12:00PM",
+    "en": "Check-In: 12:00PM",
+    "por": "Check-In: 12:00PM"
   },
   "texto2-horarios": {
     "es": "Check-Out: 10:00AM",
