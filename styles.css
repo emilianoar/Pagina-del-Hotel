@@ -658,6 +658,186 @@ nav {
 }
 
 /* ============================================
+   TARIFAS
+   ============================================ */
+.tarifas-subtitle {
+  text-align: center;
+  color: #666;
+  font-size: clamp(0.9rem, 1.5vw, 1.05rem);
+  margin-bottom: 2.5rem;
+  letter-spacing: 0.5px;
+}
+
+.tarifas-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 3rem;
+}
+
+.tarifa-card {
+  background: var(--white);
+  border-radius: 10px;
+  padding: 1.75rem 1.25rem;
+  text-align: center;
+  box-shadow: 0 4px 18px rgba(15, 29, 53, 0.08);
+  border-top: 4px solid var(--gold);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.tarifa-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(15, 29, 53, 0.14);
+}
+
+.tarifa-card-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.tarifa-card-header svg {
+  width: 36px;
+  height: 36px;
+  fill: var(--gold);
+}
+
+.tarifa-tipo {
+  color: var(--navy);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.tarifa-precios {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex: 1;
+  justify-content: center;
+}
+
+.tarifa-precio {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.tarifa-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #888;
+  font-weight: 600;
+}
+
+.tarifa-monto {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #999;
+  text-decoration: line-through;
+  text-decoration-color: rgba(0, 0, 0, 0.3);
+}
+
+.tarifa-precio-destacado .tarifa-label {
+  color: var(--gold);
+}
+
+.tarifa-monto-destacado {
+  font-size: 1.85rem;
+  color: var(--navy);
+  text-decoration: none;
+}
+
+/* Adicionales */
+.adicionales-wrapper {
+  background: var(--cream);
+  border-radius: 10px;
+  padding: 1.75rem clamp(1rem, 3vw, 2rem);
+  margin-bottom: 1.75rem;
+}
+
+.adicionales-title {
+  text-align: center;
+  color: var(--navy);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  letter-spacing: 0.5px;
+}
+
+.adicionales-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem 2.5rem;
+}
+
+.adicional-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--white);
+  padding: 0.85rem 1.25rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  min-width: 220px;
+}
+
+.adicional-item svg {
+  width: 28px;
+  height: 28px;
+  fill: var(--gold);
+  flex-shrink: 0;
+}
+
+.adicional-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.adicional-nombre {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.adicional-precio {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.tarifas-nota {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #777;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+}
+
+.tarifas-cta-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.tarifas-cta {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.tarifas-cta:hover {
+  background: var(--navy-dark);
+}
+
+/* ============================================
    HORARIOS & CONTACTO
    ============================================ */
 .info-grid {
@@ -913,6 +1093,10 @@ footer {
     grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
   }
+
+  .tarifas-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 /* ============================================
@@ -991,6 +1175,20 @@ footer {
 
   .gallery-item.featured {
     grid-column: span 1;
+  }
+
+  .tarifas-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .adicional-item {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .tarifas-cta {
+    width: 100%;
+    text-align: center;
   }
 
   .desayuno-images {

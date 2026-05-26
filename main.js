@@ -332,6 +332,11 @@ const traduccion = {
     "en": "Find Us",
     "por": "Onde Estamos"
   },
+  "link-tarifas": {
+    "es": "Tarifas",
+    "en": "Rates",
+    "por": "Tarifas"
+  },
   // Mobile nav mirrors
   "link1-mobile": {
     "es": "Sobre Nosotros",
@@ -352,6 +357,11 @@ const traduccion = {
     "es": "Donde Encontrarnos",
     "en": "Find Us",
     "por": "Onde Estamos"
+  },
+  "link-tarifas-mobile": {
+    "es": "Tarifas",
+    "en": "Rates",
+    "por": "Tarifas"
   },
   // Hero
   "titulo-principal": {
@@ -503,6 +513,102 @@ const traduccion = {
     "en": "Parking is located one block from the property (subject to availability and extra charge).",
     "por": "A garagem está localizada a uma quadra do estabelecimento (sujeita a disponibilidade e com custo adicional)."
   },
+  // Tarifas
+  "titulo-tarifas": {
+    "es": "Tarifas",
+    "en": "Rates",
+    "por": "Tarifas"
+  },
+  "subtitulo-tarifas": {
+    "es": "Precios vigentes para el mes de Junio",
+    "en": "Prices valid for June",
+    "por": "Preços válidos para o mês de Junho"
+  },
+  "tarifa-doble": {
+    "es": "Habitación Doble",
+    "en": "Double Room",
+    "por": "Quarto Duplo"
+  },
+  "tarifa-triple": {
+    "es": "Habitación Triple",
+    "en": "Triple Room",
+    "por": "Quarto Triplo"
+  },
+  "tarifa-cuadruple": {
+    "es": "Habitación Cuádruple",
+    "en": "Quadruple Room",
+    "por": "Quarto Quádruplo"
+  },
+  "tarifa-quintuple": {
+    "es": "Habitación Quíntuple",
+    "en": "Quintuple Room",
+    "por": "Quarto Quíntuplo"
+  },
+  "label-lista-1": {
+    "es": "Tarifa de lista",
+    "en": "List price",
+    "por": "Preço de tabela"
+  },
+  "label-lista-2": {
+    "es": "Tarifa de lista",
+    "en": "List price",
+    "por": "Preço de tabela"
+  },
+  "label-lista-3": {
+    "es": "Tarifa de lista",
+    "en": "List price",
+    "por": "Preço de tabela"
+  },
+  "label-lista-4": {
+    "es": "Tarifa de lista",
+    "en": "List price",
+    "por": "Preço de tabela"
+  },
+  "label-efectivo-1": {
+    "es": "Pago en efectivo",
+    "en": "Cash payment",
+    "por": "Pagamento em dinheiro"
+  },
+  "label-efectivo-2": {
+    "es": "Pago en efectivo",
+    "en": "Cash payment",
+    "por": "Pagamento em dinheiro"
+  },
+  "label-efectivo-3": {
+    "es": "Pago en efectivo",
+    "en": "Cash payment",
+    "por": "Pagamento em dinheiro"
+  },
+  "label-efectivo-4": {
+    "es": "Pago en efectivo",
+    "en": "Cash payment",
+    "por": "Pagamento em dinheiro"
+  },
+  "titulo-adicionales": {
+    "es": "Adicionales",
+    "en": "Add-ons",
+    "por": "Adicionais"
+  },
+  "adicional-ac": {
+    "es": "Aire acondicionado",
+    "en": "Air conditioning",
+    "por": "Ar condicionado"
+  },
+  "adicional-cochera": {
+    "es": "Cochera",
+    "en": "Parking",
+    "por": "Estacionamento"
+  },
+  "nota-tarifas": {
+    "es": "Tarifas sujetas a disponibilidad. Consultá por estadías extendidas y grupos.",
+    "en": "Rates subject to availability. Ask about extended stays and groups.",
+    "por": "Tarifas sujeitas a disponibilidade. Consulte sobre estadias prolongadas e grupos."
+  },
+  "cta-tarifas": {
+    "es": "Consultar por WhatsApp",
+    "en": "Ask via WhatsApp",
+    "por": "Consultar pelo WhatsApp"
+  },
   // Horarios
   "titulo-horarios": {
     "es": "Horarios",
@@ -596,6 +702,11 @@ const traduccion = {
     "es": "Comodidades",
     "en": "Amenities",
     "por": "Comodidades"
+  },
+  "footer-link-tarifas": {
+    "es": "Tarifas",
+    "en": "Rates",
+    "por": "Tarifas"
   },
   "footer-link3": {
     "es": "Contacto",
