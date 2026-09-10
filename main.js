@@ -520,9 +520,9 @@ const traduccion = {
     "por": "Tarifas"
   },
   "subtitulo-tarifas": {
-    "es": "Precios vigentes para el mes de Junio",
-    "en": "Prices valid for June",
-    "por": "Preços válidos para o mês de Junho"
+    "es": "Precios vigentes desde el 14 de septiembre de 2026",
+    "en": "Prices valid from September 14, 2026",
+    "por": "Preços válidos a partir de 14 de setembro de 2026"
   },
   "tarifa-doble": {
     "es": "Habitación Doble",
