@@ -123,7 +123,7 @@ Static website for Hotel Avenida La Plata, a 1-star hotel in La Plata, Argentina
 
 ## Repository & Deployment
 
-- **GitHub Account**: platense9@gmail.com (username: emilianoar)
+- **GitHub Account**: emilianoar
 - **Repository**: https://github.com/emilianoar/Pagina-del-Hotel
 - **Production URL**: https://www.hotelavenida.com.ar
 - **Deployment**: Push to `main` = auto-deploy to production
