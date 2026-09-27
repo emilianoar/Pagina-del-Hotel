@@ -1,3 +1,20 @@
+---
+type: Documento de diseño
+title: Pagina-del-Hotel
+description: Por qué se pasó de WordPress a un sitio estático propio (HTML, CSS y JS).
+tags:
+- pagina-del-hotel
+- web
+status: stable
+generated:
+  by: claude-code/claude
+  at: '2025-06-01T16:23:09Z'
+sources:
+- id: git
+  resource: git:2606822acaf0d2023c3d7b39e00cb673d0ccff99
+  title: Último commit que tocó este documento
+---
+
 # Pagina-del-Hotel
 # 🏨 Pagina-del-Hotel
 

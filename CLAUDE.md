@@ -1,3 +1,21 @@
+---
+type: Guía para agentes
+title: CLAUDE.md
+description: 'Guía del sitio estático hotelavenida.com.ar: stack, sistema de diseño y publicación.'
+tags:
+- pagina-del-hotel
+- web
+- agentes
+status: stable
+generated:
+  by: claude-code/claude
+  at: '2026-02-11T03:22:52Z'
+sources:
+- id: git
+  resource: git:0b335823cca13f889f2408dc3d570e11e1db7515
+  title: Último commit que tocó este documento
+---
+
 # CLAUDE.md
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
