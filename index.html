@@ -522,5 +522,30 @@
     </div>
 
     <script src="main.js" defer></script>
+
+    <!--
+      Seguimiento de conversiones Google Ads — Hotel Avenida LP
+      Pegar ANTES de </body> en todas las páginas de hotelavenida.com.ar
+      (la etiqueta de Google AW-1022889830 ya está instalada en el <head>, no hace falta tocarla).
+      Detecta clics en cualquier link de WhatsApp (wa.me / api.whatsapp.com) y en links tel:
+    -->
+    <script>
+    (function () {
+      var WHATSAPP = 'AW-1022889830/8NnSCPjr8qsdEOae4OcD'; // Clic en WhatsApp
+      var LLAMAR   = 'AW-1022889830/aRZZCPvr8qsdEOae4OcD'; // Clic en Llamar (web)
+
+      document.addEventListener('click', function (e) {
+        var a = e.target.closest && e.target.closest('a[href]');
+        if (!a || typeof gtag !== 'function') return;
+        var href = a.getAttribute('href') || '';
+
+        if (/wa\.me|whatsapp\.com/i.test(href)) {
+          gtag('event', 'conversion', { send_to: WHATSAPP });
+        } else if (/^tel:/i.test(href)) {
+          gtag('event', 'conversion', { send_to: LLAMAR });
+        }
+      }, true);
+    })();
+    </script>
 </body>
 </html>
