@@ -520,9 +520,14 @@ const traduccion = {
     "por": "Tarifas"
   },
   "subtitulo-tarifas": {
-    "es": "Precios vigentes desde el 14 de septiembre de 2026",
-    "en": "Prices valid from September 14, 2026",
-    "por": "Preços válidos a partir de 14 de setembro de 2026"
+    "es": "Precios vigentes hasta el 31 de diciembre de 2026",
+    "en": "Prices valid until December 31, 2026",
+    "por": "Preços válidos até 31 de dezembro de 2026"
+  },
+  "subtitulo-tarifas-2027": {
+    "es": "Del 1 de enero al 31 de marzo de 2027",
+    "en": "From January 1 to March 31, 2027",
+    "por": "De 1º de janeiro a 31 de março de 2027"
   },
   "tarifa-doble": {
     "es": "Habitación Doble",
